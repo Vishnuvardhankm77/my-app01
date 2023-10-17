@@ -1,10 +1,10 @@
 import React from "react";
 
 function Todo(props){
-    console.log(props.i)
+    console.log(props.idx)
     return(
         <div className="mybox">
-            <b>{props.t}</b>
+            <b style={props.task.status===true?{textDecoration:'line-through'}:{}}>{props.task.title}</b>
             <button onClick={()=>{props.d(props.i)}}>Delete</button>
         </div>
     )

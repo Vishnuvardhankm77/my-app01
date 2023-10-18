@@ -1,13 +1,19 @@
 import React from "react";
 
 function Todo(props){
-    console.log(props.idx)
     return(
         <div className="mybox">
-            <b style={props.task.status===true?{textDecoration:'line-through'}:{}}>{props.task.title}</b>
-            <button onClick={()=>{props.d(props.i)}}>Delete</button>
+            <b style={props.t.status===true?{textDecoration:'line-through'}:{}}>{props.t.title}</b>
+            <button onClick={()=>{props.f(props.idx)}}>Delete</button>
+            {
+                props.t.status===true && <button onClick={props.undo}>undo</button>
+            }
+            {
+                props.t.status===false && <button onClick={props.done}>Done</button>
+            }
+            
         </div>
     )
 }
 
-export default React.memo(Todo);
+export default React.memo(Todo);    
